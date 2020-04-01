@@ -2,6 +2,7 @@
 //
 
 #include <iostream>
+#include <algorithm>
 using namespace std;
 
 struct node
@@ -16,6 +17,7 @@ void insertNode(node** root, int val);
 bool searchTree(node** root, int val);
 int minEl(node* root);
 int maxEl(node* root);
+int height(node* root);
 
 
 int main()
@@ -25,10 +27,12 @@ int main()
     insertNode(&root, 25);
     insertNode(&root, 14);
     insertNode(&root, 32);
+    insertNode(&root, 1);
     cout << searchTree(&root, 32) << "\n";
     cout << searchTree(&root, 1) << "\n";
     cout << "min " << minEl(root) << "\n";
     cout << "max " << maxEl(root) << "\n";
+    cout << "h is " << height(root) << "\n";
 }
 
 
@@ -109,4 +113,15 @@ int maxEl(node* root)
         return root->data;
     else
         return maxEl(root->right);
+}
+
+int height(node* root)
+{
+    if (root == nullptr)
+        return -1;
+
+    else
+    {
+        return 1 + max(height(root->left), height(root->right));
+    }
 }

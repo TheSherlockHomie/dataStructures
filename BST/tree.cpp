@@ -27,6 +27,10 @@ void preOrder(node* root);
 void inOrder(node* root);
 void postOrder(node* root);
 
+//check if BST
+bool isBST(node* root);
+bool isBSTutil(node* root, int mini, int maxi);
+
 
 
 int main()
@@ -58,6 +62,8 @@ int main()
     cout << "post: \n";
     postOrder(root);
     cout << "\n";
+
+    cout << "isBST: " << isBST(root) << "\n";
 }
 
 
@@ -203,4 +209,22 @@ void postOrder(node* root)
     postOrder(root->left);
     postOrder(root->right);
     cout << root->data << " ";
+}
+
+
+//check if BST
+bool isBST(node* root)
+{
+    return isBSTutil(root, INT_MIN, INT_MAX);
+}
+
+bool isBSTutil(node* root, int mini, int maxi)
+{
+    if (root == nullptr)
+        return true;
+
+    if (root->data <= mini || root->data > maxi)
+        return false;
+
+    return (isBSTutil(root->left, mini, root->data) && isBSTutil(root->right, root->data, maxi));
 }

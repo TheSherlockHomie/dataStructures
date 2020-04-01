@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <algorithm>
+#include <queue>
 using namespace std;
 
 struct node
@@ -19,6 +20,14 @@ int minEl(node* root);
 int maxEl(node* root);
 int height(node* root);
 
+//BFS
+void levelOrder(node* root);
+//DFS
+void preOrder(node* root);
+void inOrder(node* root);
+void postOrder(node* root);
+
+
 
 int main()
 {
@@ -33,6 +42,22 @@ int main()
     cout << "min " << minEl(root) << "\n";
     cout << "max " << maxEl(root) << "\n";
     cout << "h is " << height(root) << "\n";
+
+    cout << "BFS: \n";
+    levelOrder(root);
+    cout << "\n";
+
+    cout << "pre: \n";
+    preOrder(root);
+    cout << "\n";
+
+    cout << "in: \n";
+    inOrder(root);
+    cout << "\n";
+
+    cout << "post: \n";
+    postOrder(root);
+    cout << "\n";
 }
 
 
@@ -124,4 +149,58 @@ int height(node* root)
     {
         return 1 + max(height(root->left), height(root->right));
     }
+}
+
+
+//BFS
+void levelOrder(node* root)
+{
+    queue<node*> Q;
+
+    Q.push(root);
+
+    while (!Q.empty())
+    {
+        auto curr = Q.front();
+        if (curr != nullptr)
+        {
+            cout << curr->data<<" ";
+            Q.push(curr->left);
+            Q.push(curr->right);
+        }
+        Q.pop();
+    }
+}
+
+//DFS
+void preOrder(node* root)
+{
+    if (root == nullptr)
+        return;
+
+    cout << root->data << " ";
+    preOrder(root->left);
+    preOrder(root->right);
+}
+
+
+void inOrder(node* root)
+{
+    if (root == nullptr)
+        return;
+
+    inOrder(root->left);
+    cout << root->data << " ";
+    inOrder(root->right);
+}
+
+
+void postOrder(node* root)
+{
+    if (root == nullptr)
+        return;
+
+    postOrder(root->left);
+    postOrder(root->right);
+    cout << root->data << " ";
 }

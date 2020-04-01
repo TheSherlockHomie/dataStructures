@@ -16,6 +16,7 @@ struct node
 
 void insertNode(node** root, int val);
 bool searchTree(node** root, int val);
+node* deleteNode(node* root, int val);
 int minEl(node* root);
 int maxEl(node* root);
 int height(node* root);
@@ -64,6 +65,11 @@ int main()
     cout << "\n";
 
     cout << "isBST: " << isBST(root) << "\n";
+    
+    deleteNode(root, 25);
+    cout << "BFS after deleting 25: \n";
+    levelOrder(root);
+    cout << "\n";
 }
 
 
@@ -122,6 +128,51 @@ bool searchTree(node** root, int val)
             }
         }
     }
+}
+
+node* deleteNode(node* root, int val)
+{
+    if (root == nullptr)
+    {
+        return root;
+    }
+    
+    //find val in tree
+    else if (val < root->data)
+    {
+        root->left = deleteNode(root->left, val);
+    }
+    else if (val > root->data)
+    {
+        root->right = deleteNode(root->right, val);
+    }
+    else //delete this node
+    {
+        if (root->left == nullptr && root->right == nullptr) //no children
+        {
+            delete root;
+            root = nullptr;
+        }
+        else if (root->left != nullptr && root->right == nullptr) //only left child
+        {
+            auto temp = root->left;
+            delete root;
+            root = temp;
+        }
+        else if (root->left == nullptr && root->right != nullptr) //only right child
+        {
+            auto temp = root->right;
+            delete root;
+            root = temp;
+        }
+        else //both children present
+        {
+            auto minInRight = minEl(root->right);
+            root->data = minInRight;
+            root->right = deleteNode(root->right, minInRight);
+        }
+    }
+    return root;
 }
 
 int minEl(node* root)

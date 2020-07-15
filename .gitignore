@@ -1,6 +1,7 @@
 ﻿#ignore Visual Studio files
 .vs
 **/*.vcxproj.user
+**/Debug
 
 #ignore binaries
 /*/bin

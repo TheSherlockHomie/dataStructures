@@ -65,7 +65,7 @@ int main()
     cout << "\n";
 
     cout << "isBST: " << isBST(root) << "\n";
-    
+
     deleteNode(root, 25);
     cout << "BFS after deleting 25: \n";
     levelOrder(root);
@@ -136,7 +136,7 @@ node* deleteNode(node* root, int val)
     {
         return root;
     }
-    
+
     //find val in tree
     else if (val < root->data)
     {
@@ -221,7 +221,7 @@ void levelOrder(node* root)
         auto curr = Q.front();
         if (curr != nullptr)
         {
-            cout << curr->data<<" ";
+            cout << curr->data << " ";
             Q.push(curr->left);
             Q.push(curr->right);
         }

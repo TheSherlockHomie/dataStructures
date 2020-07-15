@@ -1,4 +1,5 @@
 /*
+https://www.hackerearth.com/practice/algorithms/graphs/graph-representation/tutorial/ Edge Existence
 You have been given an undirected graph consisting of N nodes and M edges.
 This graph can consist of self-loops as well as multiple edges.
 In addition, you have also been given Q queries. For each query,

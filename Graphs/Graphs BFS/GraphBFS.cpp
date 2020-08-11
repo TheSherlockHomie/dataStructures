@@ -42,3 +42,68 @@ Testcase 1:
 so starting from 0 , bfs will be 0 1 2 3 4.
 */
 
+#include <iostream>
+#include <vector>
+#include <queue>
+
+using namespace std;
+
+vector<int> bfs(vector<vector<int>>&);
+
+int main()
+{
+    int t;
+    cin >> t;
+
+    while (t--)
+    {
+        int n, e;
+        cin >> n >> e;
+
+        vector<vector<int>> adj(n);
+
+        for (int i = 0; i < e; ++i)
+        {
+            int a, b;
+            cin >> a >> b;
+
+            adj[a].push_back(b); //directed graph
+        }
+
+        vector<int> ans = bfs(adj);
+        
+        for (auto x : ans)
+            cout << x << " ";
+    }
+}
+
+vector<int> bfs(vector<vector<int>>& adj)
+{
+    vector<int> orderOfVisit;
+
+    vector<bool> visited(adj.size(), 0);
+
+    queue<int> q;
+
+    q.push(0);
+    visited[0] = 1;
+
+    while (!q.empty())
+    {
+        auto x = q.front();
+        q.pop();
+
+        orderOfVisit.push_back(x);
+
+        for (int j = 0; j < adj[x].size(); ++j)
+        {
+            if (!visited[adj[x][j]])
+            {
+                visited[adj[x][j]] = 1;
+                q.push(adj[x][j]);
+            }
+        }
+    }
+
+    return orderOfVisit;
+}

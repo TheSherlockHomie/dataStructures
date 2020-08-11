@@ -9,6 +9,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Graphs Adj Matrix", "Graphs
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Graphs Adjacency List", "Graphs\Adjacency List\Adjacency List.vcxproj", "{87093455-66D3-48CB-815E-F66449138765}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Graphs BFS", "Graphs\Graphs BFS\Graphs BFS.vcxproj", "{5D314164-14C5-41EE-B931-D4051C35878F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -27,6 +29,10 @@ Global
 		{87093455-66D3-48CB-815E-F66449138765}.Debug|x64.Build.0 = Debug|x64
 		{87093455-66D3-48CB-815E-F66449138765}.Release|x64.ActiveCfg = Release|x64
 		{87093455-66D3-48CB-815E-F66449138765}.Release|x64.Build.0 = Release|x64
+		{5D314164-14C5-41EE-B931-D4051C35878F}.Debug|x64.ActiveCfg = Debug|x64
+		{5D314164-14C5-41EE-B931-D4051C35878F}.Debug|x64.Build.0 = Debug|x64
+		{5D314164-14C5-41EE-B931-D4051C35878F}.Release|x64.ActiveCfg = Release|x64
+		{5D314164-14C5-41EE-B931-D4051C35878F}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

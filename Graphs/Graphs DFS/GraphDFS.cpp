@@ -44,7 +44,7 @@ using namespace std;
 class soln
 {
 private:
-    vector<vector<int>>& adj;
+    vector<vector<int>> adj;
     vector<int> orderOfVisit;
     vector<bool> visited;
 
@@ -106,5 +106,5 @@ int main()
 vector<int> dfs(vector<vector<int>>& adj)
 {
     soln s;
-    s.dfs(adj, adj.size());
+    return s.dfs(adj, adj.size());
 }

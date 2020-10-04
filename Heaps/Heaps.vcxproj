@@ -19,7 +19,11 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Binary_Heap.cpp" />
+    <ClCompile Include="Sampleprogram.cpp" />
+    <ClCompile Include="BHeap.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="BHeap.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>

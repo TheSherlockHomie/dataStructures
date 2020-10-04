@@ -1,4 +1,5 @@
-#pragma once
+#ifndef dsbheap
+#define dsbheap
 
 #include<iostream>
 #include<vector>
@@ -27,3 +28,5 @@ namespace ds
 
 	};
 }
+
+#endif

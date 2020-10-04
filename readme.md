@@ -38,6 +38,7 @@ The cpp files can directly be compiled into an executable regardless of platform
 ### Visual Studio Solution Structure
 
 There is a `.sln` file at the root of the repository. This solution file contains several different projects for implementations of the data structures. To work with a particular data structure, select the respective project and open the source `.cpp` file. (Make sure to select the `show all files` button in the solution explorer to actually see the directories in the project)
+Visual Studio is currently set to store all compiled binaries in `$(Project Directory)/bin`, and all intermediate files in `$(Project Directory)/bin-int`. If you add a new project, make sure they follow these guidelines.
 
 _This above is how the repository is structured for now. Suggestions for better structuring are welcomed. Also, support for a build system like premake or cmake is planned. Kindly open an issue or see [contributing.md](./contributing.md) for suggestions/contributions._
 
@@ -47,7 +48,7 @@ Please read [contributing.md](./contributing.md) for details.
 
 ## Authors
 
--   **Kushagra Kalash** - _Initial work_ - [TheSherlockHomie](https://github.com/TheSherlockHomie)
+_Initial work_ - [TheSherlockHomie](https://github.com/TheSherlockHomie)
 
 See also the list of [contributors](https://github.com/your/project/contributors).
 

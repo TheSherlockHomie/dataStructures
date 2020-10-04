@@ -16,6 +16,11 @@ private:
 public:
 	BinaryHeap() {}
 	int Size();
+	void Insert(int n);
+	void Poll();
+	void Delete(int n);
+	void Display();
+
 };
 
 int BinaryHeap::Size()
@@ -78,7 +83,96 @@ void BinaryHeap::bubbledown(int in)
 	}
 }
 
+void BinaryHeap::Insert(int n) {
+	heap.push_back(n);
+	bubbleup(Size() - 1);
+}
+
+void BinaryHeap::Poll() 
+{
+	if (Size() == 0) 
+	{
+		cout << "Heap is Empty" << "\n";
+		return;
+	}
+	heap[0] = heap[Size() - 1];
+	heap.pop_back();
+	bubbledown(0);
+	cout << "Root Element Deleted" << "\n";
+}
+
+void BinaryHeap::Display() 
+{
+	if (Size() == 0)
+	{
+		cout << " Heap is Empty " << "\n";
+		return;
+	}
+	cout << "Elements of Heap: ";
+	int pos = 0;
+	while (pos != Size()) 
+	{
+		cout << heap[pos] << " ";
+		pos++;
+	}
+	cout << "\n";
+}
+
+void BinaryHeap::Delete(int n) {
+	int pos = 0;
+	while (heap[pos] != n && pos < Size())
+	{
+		pos++;
+		if (pos == Size())
+		{
+			cout << "Element not present in heap" << "\n";
+			return;
+		}
+	}
+	heap[pos] = heap[Size() - 1];
+	heap.pop_back();
+	bubbledown(pos);
+	cout << "Element Deleted" << "\n";
+}
+
 int main()
 {
 	BinaryHeap obj;
+	while (1) 
+	{
+		int c, ele;
+		cout << "1.Insert Element" << "\n";
+		cout << "2.Delete Minimum Element" << "\n";
+		cout << "3.Delete Element" << "\n";
+		cout << "4.Display Heap" << "\n";
+		cout << "5.Exit" << "\n";
+		cout << "Enter your choice: ";
+		cin >> c;
+		switch (c) 
+		{
+		case 1:
+			cout << "Enter the element to be inserted: ";
+			cin >> ele;
+			obj.Insert(ele);
+			break;
+		case 2:
+			obj.Poll();
+			break;
+		case 3:
+			cout << "Enter the element to be deleted: ";
+			cin >> ele;
+			obj.Delete(ele);
+			obj.Display();
+			break;
+		case 4:
+			obj.Display();
+			break;
+		case 5:
+			exit(1);
+		default:
+			cout << "Enter Correct Choice ... Try Again " << "\n";
+		}
+	}
+	return 0;
 }
+

@@ -13,6 +13,8 @@ namespace ds
 	private:
 		std::vector <T> heap;
 		size_t parent(size_t child);
+		bool leftexist(size_t parent);
+		bool rightexist(size_t parent);
 		size_t left(size_t parent);
 		size_t right(size_t parent);
 		void bubbleup(size_t index);
@@ -23,7 +25,7 @@ namespace ds
 		BinaryHeap() {}
 		size_t Size();
 		void Insert(T n);
-		void Poll();
+		T Poll();
 		void Delete(T n);
 		void Display();
 

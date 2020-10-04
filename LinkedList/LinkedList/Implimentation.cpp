@@ -75,17 +75,36 @@ public:
         }
         return count;
     }
+    int operator [] (int const &index)
+    {
+        Node* tmp = new Node;
+        int count=0;
+        if (size() == 0 || index >= size())
+            return INT_MIN;
+        else
+        {
+            tmp = head;
+            while (tmp != nullptr)
+            {
+                if (count == index)
+                    break;
+                count++;
+                tmp = tmp->next;
+            }
+            return tmp->data;
+        }
+    }
 };
-
 
 int main()
 {
     LinkedList LL;
-    /*LL.Insert(1);
+    LL.Insert(1);
     LL.Insert(2);
     LL.Insert(3);
     LL.Insert(4);
     LL.Insert(5);
-    LL.Scan();*/
-    cout<<"\nSize of the Linked List = "<<LL.size();
+    LL.Scan();
+    cout << "\nSize of the Linked List = " << LL.size();
+    cout << "\n4th Element :"<< LL[3];
 }

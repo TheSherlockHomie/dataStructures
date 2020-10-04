@@ -19,7 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Binary_Heap.cpp" />
+    <ClCompile Include="Sampleprogram.cpp" />
     <ClCompile Include="BHeap.cpp" />
   </ItemGroup>
   <ItemGroup>

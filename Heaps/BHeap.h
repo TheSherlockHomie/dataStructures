@@ -3,11 +3,12 @@
 
 #include<iostream>
 #include<vector>
+#include<string>
 
 namespace ds
 {
-	template<typename T> 
-	class BinaryHeap 
+	template<typename T>
+	class BinaryHeap
 	{
 		//private data members and member functions.
 	private:
@@ -47,7 +48,7 @@ size_t ds::BinaryHeap<T>::left(size_t parent)
 	if (l < Size())
 		return l;
 	else
-		throw "Child does not exist";
+		throw std::string("Child does not exist");
 }
 
 // Check if left child exists.
@@ -70,7 +71,7 @@ size_t ds::BinaryHeap<T>::right(size_t parent)
 	if (r < Size())
 		return r;
 	else
-		throw "Child does not exist";
+		throw std::string("Child does not exist");
 }
 
 // Check if right child exists.
@@ -89,7 +90,7 @@ template <typename T>
 size_t ds::BinaryHeap<T>::parent(size_t child)
 {
 	if (child == 0)
-		throw "Parent does not exist";
+		throw std::string("Parent does not exist");
 	size_t p = (child - 1) / 2;
 	return p;
 }
@@ -146,7 +147,7 @@ T ds::BinaryHeap<T>::Poll()
 {
 	if (Size() == 0)
 	{
-		throw "Heap is Empty";
+		throw std::string("Heap is Empty");
 	}
 	return heap[0];
 }
@@ -173,13 +174,18 @@ void ds::BinaryHeap<T>::Display()
 //Heap Operation : Delete an element from heap.
 template <typename T>
 void ds::BinaryHeap<T>::Delete(T n) {
+	if (Size() == 0)
+	{
+		throw std::string("Heap is Empty");
+	}
+
 	size_t pos = 0;
 	while (heap[pos] != n && pos < Size())
 	{
 		pos++;
 		if (pos == Size())
 		{
-			throw "Element not present in heap";
+			throw std::string("Element not present in heap");
 		}
 	}
 	// interchange element with last element present in heap.

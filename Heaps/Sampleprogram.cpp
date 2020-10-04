@@ -1,11 +1,11 @@
 // Binary Heap.
 // Min Heap implementation.
 // To understand Heaps and other Data Structures see this video - [https://www.youtube.com/watch?v=RBSGKlAvoiM].
-// This code is contributed by Shivam Malviya [https://github.com/TREXXX27].
+// This code is contributed by Shivam Malviya [https://github.com/TREXXX27] and Kushagra Kalash [https://github.com/TheSherlockHomie].
 
-#include<iostream>
-#include<vector>
-#include"BHeap.h"
+#include <iostream>
+#include <vector>
+#include "BHeap.h"
 
 using namespace std;
 using namespace ds;
@@ -13,9 +13,9 @@ using namespace ds;
 // Main function.
 int main()
 {
-	BinaryHeap obj;
+	BinaryHeap<int> obj;
 
-	while (1) 
+	while (1)
 	{
 		int c, ele;
 
@@ -27,30 +27,38 @@ int main()
 		cout << "Enter your choice: ";
 
 		cin >> c;
-		switch (c) 
+		try
 		{
-		case 1:
-			cout << "Enter the element to be inserted: ";
-			cin >> ele;
-			obj.Insert(ele);
-			break;
-		case 2:
-			obj.Poll();
-			break;
-		case 3:
-			cout << "Enter the element to be deleted: ";
-			cin >> ele;
-			obj.Delete(ele);
-			obj.Display();
-			break;
-		case 4:
-			obj.Display();
-			break;
-		case 5:
-			exit(1);
-		default:
-			cout << "Enter Correct Choice ... Try Again " << "\n";
+			switch (c)
+			{
+			case 1:
+				cout << "Enter the element to be inserted: ";
+				cin >> ele;
+				obj.Insert(ele);
+				break;
+			case 2:
+				cout << "Top element is : " << obj.Poll() << "\n";
+				break;
+			case 3:
+				cout << "Enter the element to be deleted: ";
+				cin >> ele;
+				obj.Delete(ele);
+				obj.Display();
+				break;
+			case 4:
+				obj.Display();
+				break;
+			case 5:
+				exit(0);
+			default:
+				cout << "Enter Correct Choice ... Try Again " << "\n";
+			}
 		}
+		catch (string e)
+		{
+			cout << e << "\n";
+		}
+
 	}
 	return 0;
 }

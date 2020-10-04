@@ -21,6 +21,9 @@
   <ItemGroup>
     <ClCompile Include="Binary_Heap.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="BHeap.h" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>

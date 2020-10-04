@@ -3,9 +3,9 @@
 // To understand Heaps and other Data Structures see this video - [https://www.youtube.com/watch?v=RBSGKlAvoiM].
 // This code is contributed by Shivam Malviya [https://github.com/TREXXX27].
 
-#include<iostream>
-#include<vector>
-#include"BHeap.h"
+#include <iostream>
+#include <vector>
+#include "BHeap.h"
 
 using namespace std;
 using namespace ds;
@@ -13,9 +13,9 @@ using namespace ds;
 // Main function.
 int main()
 {
-	BinaryHeap obj;
+	BinaryHeap<int> obj;
 
-	while (1) 
+	while (1)
 	{
 		int c, ele;
 
@@ -27,7 +27,7 @@ int main()
 		cout << "Enter your choice: ";
 
 		cin >> c;
-		switch (c) 
+		switch (c)
 		{
 		case 1:
 			cout << "Enter the element to be inserted: ";
@@ -35,7 +35,7 @@ int main()
 			obj.Insert(ele);
 			break;
 		case 2:
-			obj.Poll();
+			cout << obj.Poll();
 			break;
 		case 3:
 			cout << "Enter the element to be deleted: ";

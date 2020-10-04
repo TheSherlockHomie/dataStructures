@@ -20,7 +20,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Sampleprogram.cpp" />
-    <ClCompile Include="BHeap.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BHeap.h" />

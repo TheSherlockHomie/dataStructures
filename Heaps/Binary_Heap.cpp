@@ -1,10 +1,16 @@
+// Binary Heap.
+// Min Heap implementation.
+// To understand Heaps and other Data Structures see this video - [https://www.youtube.com/watch?v=RBSGKlAvoiM].
+// This code is contributed by Shivam Malviya [https://github.com/TREXXX27].
+
 #include<iostream>
 #include<vector>
 
 using namespace std;
 
-class BinaryHeap
+class BinaryHeap					
 {
+//private data members and member functions.
 private:
 	vector <int> heap;
 	int parent(int child);
@@ -13,6 +19,7 @@ private:
 	void bubbleup(int index);
 	void bubbledown(int index);
 
+//public data members and member functions.
 public:
 	BinaryHeap() {}
 	int Size();
@@ -23,12 +30,14 @@ public:
 
 };
 
-int BinaryHeap::Size()
+// Returns size of heap.
+int BinaryHeap::Size()				
 {
 	return heap.size();
 }
 
-int BinaryHeap::left(int parent)
+// Returns left child.
+int BinaryHeap::left(int parent)	
 {
 	int l = 2 * parent + 1;
 	if (l < Size())
@@ -37,7 +46,8 @@ int BinaryHeap::left(int parent)
 		return -1;
 }
 
-int BinaryHeap::right(int parent)
+// Returns right child.
+int BinaryHeap::right(int parent)	
 {
 	int r = 2 * parent + 2;
 	if (r < Size())
@@ -46,7 +56,8 @@ int BinaryHeap::right(int parent)
 		return -1;
 }
 
-int BinaryHeap::parent(int child)
+//Returns parent.
+int BinaryHeap::parent(int child)	
 {
 	if (child == 0)
 		return -1;
@@ -54,7 +65,8 @@ int BinaryHeap::parent(int child)
 	return p;
 }
 
-void BinaryHeap::bubbleup(int in)
+//Bubble UP: Used for implementing heap operations.
+void BinaryHeap::bubbleup(int in)	
 {
 	if (in >= 0 && parent(in) >= 0 && heap[parent(in)] > heap[in])
 	{
@@ -65,15 +77,19 @@ void BinaryHeap::bubbleup(int in)
 	}
 }
 
+//Bubble DOWN : Used for implementing heap operations.
 void BinaryHeap::bubbledown(int in)
 {
 
 	int child = left(in);
 	int child1 = right(in);
+
+	// Finding minimum of left and right child if both of them exists.
 	if (child >= 0 && child1 >= 0 && heap[child] > heap[child1])
 	{
 		child = child1;
 	}
+
 	if (child > 0 && heap[in] > heap[child])
 	{
 		int temp = heap[in];
@@ -83,24 +99,24 @@ void BinaryHeap::bubbledown(int in)
 	}
 }
 
+//Heap Operation : Insertion.
 void BinaryHeap::Insert(int n) {
 	heap.push_back(n);
 	bubbleup(Size() - 1);
 }
 
+//Heap Operation : Return TOP of heap. 
 void BinaryHeap::Poll() 
 {
 	if (Size() == 0) 
 	{
-		cout << "Heap is Empty" << "\n";
+		cerr << "Heap is Empty" << "\n";
 		return;
 	}
-	heap[0] = heap[Size() - 1];
-	heap.pop_back();
-	bubbledown(0);
-	cout << "Root Element Deleted" << "\n";
+	cout << "TOP element of heap is : " << heap[0] << "\n";
 }
 
+//Heap Operation : Display all elements in heap.
 void BinaryHeap::Display() 
 {
 	if (Size() == 0)
@@ -118,6 +134,7 @@ void BinaryHeap::Display()
 	cout << "\n";
 }
 
+//Heap Operation : Delete an element from heap.
 void BinaryHeap::Delete(int n) {
 	int pos = 0;
 	while (heap[pos] != n && pos < Size())
@@ -125,28 +142,33 @@ void BinaryHeap::Delete(int n) {
 		pos++;
 		if (pos == Size())
 		{
-			cout << "Element not present in heap" << "\n";
+			cerr << "Element not present in heap" << "\n";
 			return;
 		}
 	}
-	heap[pos] = heap[Size() - 1];
+	// Interchange element with last element present in heap.
+	heap[pos] = heap[Size() - 1];	
 	heap.pop_back();
 	bubbledown(pos);
 	cout << "Element Deleted" << "\n";
 }
 
+// Main function.
 int main()
 {
 	BinaryHeap obj;
+
 	while (1) 
 	{
 		int c, ele;
+
 		cout << "1.Insert Element" << "\n";
-		cout << "2.Delete Minimum Element" << "\n";
+		cout << "2.TOP OF heap" << "\n";
 		cout << "3.Delete Element" << "\n";
 		cout << "4.Display Heap" << "\n";
 		cout << "5.Exit" << "\n";
 		cout << "Enter your choice: ";
+
 		cin >> c;
 		switch (c) 
 		{

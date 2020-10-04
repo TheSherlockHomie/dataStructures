@@ -6,24 +6,27 @@
 
 namespace ds
 {
-	class BinaryHeap
+	template<typename T> 
+	class BinaryHeap 
 	{
 		//private data members and member functions.
 	private:
-		std::vector <int> heap;
-		int parent(int child);
-		int left(int parent);
-		int right(int parent);
-		void bubbleup(int index);
-		void bubbledown(int index);
+		std::vector <T> heap;
+		size_t parent(size_t child);
+		bool leftexist(size_t parent);
+		bool rightexist(size_t parent);
+		size_t left(size_t parent);
+		size_t right(size_t parent);
+		void bubbleup(size_t index);
+		void bubbledown(size_t index);
 
 		//public data members and member functions.
 	public:
 		BinaryHeap() {}
-		int Size();
-		void Insert(int n);
-		void Poll();
-		void Delete(int n);
+		size_t Size();
+		void Insert(T n);
+		T Poll();
+		void Delete(T n);
 		void Display();
 
 	};

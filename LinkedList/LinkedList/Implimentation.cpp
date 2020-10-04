@@ -56,15 +56,36 @@ public:
             }
         }
     }
+    int size()
+    {
+        Node* tmp = new Node;
+        int count = 0;
+        if (head == nullptr)
+        {
+            count = 0;
+        }
+        else
+        {
+            tmp = head;
+            while (tmp != nullptr)
+            {
+                tmp = tmp->next;
+                count++;
+            }
+        }
+        return count;
+    }
 };
+
 
 int main()
 {
     LinkedList LL;
-    LL.Insert(1);
+    /*LL.Insert(1);
     LL.Insert(2);
     LL.Insert(3);
     LL.Insert(4);
     LL.Insert(5);
-    LL.Scan();
+    LL.Scan();*/
+    cout<<"\nSize of the Linked List = "<<LL.size();
 }

@@ -112,7 +112,7 @@ void ds::BinaryHeap<T>::bubbleup(size_t in)
 template <typename T>
 void ds::BinaryHeap<T>::bubbledown(size_t in)
 {
-	size_t child, child1;
+	size_t child = 0, child1 = 0;
 	if (rightexist(in))
 		child1 = right(in);
 	if (leftexist(in))

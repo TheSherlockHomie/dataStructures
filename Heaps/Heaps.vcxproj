@@ -19,7 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Sampleprogram.cpp" />
+    <ClCompile Include="SampleProgram.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BHeap.h" />

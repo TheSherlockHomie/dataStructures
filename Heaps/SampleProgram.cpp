@@ -1,4 +1,4 @@
-// Binary Heap.
+// Sample Program for Binary Heap
 // Min Heap implementation.
 // To understand Heaps and other Data Structures see this video - [https://www.youtube.com/watch?v=RBSGKlAvoiM].
 // This code is contributed by Shivam Malviya [https://github.com/TREXXX27] and Kushagra Kalash [https://github.com/TheSherlockHomie].

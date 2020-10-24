@@ -27,17 +27,26 @@ namespace ds
     {
     public:
         LList();
+        ~LList();
 
         void push_back(int);
+        void pop_back();
 
     private:
         std::shared_ptr<_Node> head;
+
+        void clean();
     };
 }
 
 ds::LList::LList()
 {
     head = nullptr;
+}
+
+ds::LList::~LList()
+{
+    clean();
 }
 
 void ds::LList::push_back(int data)
@@ -56,6 +65,16 @@ void ds::LList::push_back(int data)
     else
     {
         head = std::move(temp);
+    }
+}
+
+void ds::LList::clean()
+{
+    //Goes through and destructs each node in the list iteratively
+    //Otherwise recursive calls to ~_Node() will cause a stack overflow
+    while (head)
+    {
+        head = std::move(head->next);
     }
 }
 

@@ -9,4 +9,6 @@ int main()
     list.push_back(0);
     list.push_back(1);
     list.push_back(2);
+
+    list.pop_back();
 }

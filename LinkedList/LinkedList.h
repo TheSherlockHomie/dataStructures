@@ -39,6 +39,8 @@ namespace ds
     };
 }
 
+//Constructors and Destructors
+
 ds::LList::LList()
 {
     head = nullptr;
@@ -48,6 +50,9 @@ ds::LList::~LList()
 {
     clean();
 }
+
+
+//Public functions
 
 void ds::LList::push_back(int data)
 {
@@ -67,6 +72,31 @@ void ds::LList::push_back(int data)
         head = std::move(temp);
     }
 }
+
+void ds::LList::pop_back()
+{
+    if (head)
+    {
+        if (!head->next)
+        {
+            head = std::move(nullptr);
+        }
+        else
+        {
+            std::shared_ptr<_Node> iter = head;
+
+            while (iter->next->next)
+            {
+                iter = iter->next;
+            }
+
+            iter->next = std::move(nullptr);
+        }
+    }
+}
+
+
+//Private Functions
 
 void ds::LList::clean()
 {
